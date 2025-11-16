@@ -137,9 +137,10 @@ main {
 
 .game-title {
   font-size: 0.8rem;
-  margin-top: 5px;
+  margin-top: 8px;
   color: #ffffff;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 
@@ -225,7 +226,7 @@ input[type="number"] {
 
 .card.selected {
   border: 2px solid var(--border-color);
-  background-color: #101e76;
+  background-color: #000000;
 }
 
 .card img {
@@ -1406,7 +1407,7 @@ p {
 .game-title-english-heading { 
   font-family: 'Vampire Wars', sans-serif;
   font-weight: 100;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   line-height: 1;
   letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
