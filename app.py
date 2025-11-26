@@ -34,7 +34,7 @@ def admin_required(f):
 # Load transactions from data store API
 def load_transactions():
     try:
-        response = requests.get(f'{DATA_STORE_URL}/transactions?store=lyvathtopup', timeout=5)
+        response = requests.get(f'{DATA_STORE_URL}/api/v1/transactions?store=lyvathtopup', timeout=5)
         response.raise_for_status()
         return response.json()
     except requests.RequestException:
@@ -43,7 +43,7 @@ def load_transactions():
 # Save transactions to data store API
 def save_transactions(transactions):
     try:
-        response = requests.post(f'{DATA_STORE_URL}/transactions?store=lyvathtopup', 
+        response = requests.post(f'{DATA_STORE_URL}/api/v1/transactions?store=lyvathtopup', 
                                json=transactions, timeout=5)
         response.raise_for_status()
         return response.json().get('success', False)
@@ -53,7 +53,7 @@ def save_transactions(transactions):
 # Add a single transaction to data store
 def add_transaction_to_store(transaction_data, status):
     try:
-        response = requests.post(f'{DATA_STORE_URL}/transactions?store=lyvathtopup/add', 
+        response = requests.post(f'{DATA_STORE_URL}/api/v1/transactions?store=lyvathtopup/add', 
                                json={
                                    'status': status,
                                    'transaction': transaction_data
@@ -451,7 +451,7 @@ def update_package():
             return jsonify({'error': 'Price must be a number'}), 400
 
         # Update via API
-        response = requests.post(f'{DATA_STORE_URL}/packages/update?store=lyvathtopup', 
+        response = requests.post(f'{DATA_STORE_URL}/api/v1/packages/update?store=lyvathtopup', 
                                json={
                                    'game_type': game_type,
                                    'package_name': package_name,
@@ -522,7 +522,7 @@ def update_special_offer():
             return jsonify({'error': 'Price must be a number'}), 400
 
         # Update via API
-        response = requests.post(f'{DATA_STORE_URL}/packages/update?store=lyvathtopup', 
+        response = requests.post(f'{DATA_STORE_URL}/api/v1/packages/update?store=lyvathtopup', 
                                json={
                                    'game_type': game_type,
                                    'package_name': offer_name,
