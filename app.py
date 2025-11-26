@@ -65,7 +65,7 @@ def add_transaction_to_store(transaction_data, status):
 # Load packages from data store API
 def load_packages():
     try:
-        response = requests.get(f'{DATA_STORE_URL}/packages?store=lyvathtopup', timeout=5)
+        response = requests.get(f'{DATA_STORE_URL}/api/v1/packages?store=lyvathtopup', timeout=5)
         response.raise_for_status()
         return response.json()
     except requests.RequestException:
